@@ -358,25 +358,25 @@
 					<form id="request" class="main_form" action="mailto:service@lmttires-montreal.ca" enctype="text/plain" method="post">
                   <div class="row">
                                  <div class="col-md-12 ">
-                                    <input class="contactus" placeholder="Name" type="type" name=" Name"> 
+                                    <input class="contactus" placeholder="Name *" type="text" name="Name" required> 
                                  </div>
                                  <div class="col-md-12">
-                                    <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                                    <input class="contactus" placeholder="Phone Number *" type="tel" name="Phone Number" required>                          
                                  </div>
                                  <div class="col-md-12">
-                                    <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                                    <input class="contactus" placeholder="Email *" type="email" name="Email" required> 
                                  </div>
                                  <div class="col-md-12">
-                                    <input class="contactus" placeholder="Address" type="type" name="Address"> 
+                                    <input class="contactus" placeholder="Address" type="text" name="Address"> 
                                  </div>
                                  <div class="col-md-12">
-                                    <input class="contactus" placeholder="City" type="type" name="City"> 
+                                    <input class="contactus" placeholder="City" type="text" name="City"> 
                                  </div>
                                  <div class="col-md-12">
-                                    <input class="contactus" placeholder="Postal Code" type="type" name="Postal Code"> 
+                                    <input class="contactus" placeholder="Postal Code" type="text" name="Postal Code"> 
                                  </div>
                                  <div class="col-md-12">
-                                    <label for="num_vehicles">Number of Vehicles:</label> 
+                                    <label for="num_vehicles">Number of Vehicles:<span class="required-indicator"> *</span></label> 
 									<select id="num_vehicles" name="num_vehicles" required="">
 									  		<option value="">Select one:</option>
 									  		<option value="1">1</option>
@@ -389,14 +389,14 @@
 									  	</select> 
                                  </div>
                                  <div class="col-md-12">
-									  <p><label for="appt_choice1">Appointment Choice 1:</label> 
+									  <p><label for="appt_choice1">Appointment Choice 1:<span class="required-indicator"> *</span></label> 
 	
 									  	<select id="appt_choice1" name="appt_choice1" required="">
 									  		<option value="">Select one:</option>
 									  		<option value="weekday">Weekday appointment</option>
 									  		<option value="weekend">Weekend appointment</option>
 									  	</select> </p>
-									  	<p><label for="time_choice_1">Time Choice 1:</label> 
+									  	<p><label for="time_choice_1">Time Choice 1:<span class="required-indicator"> *</span></label> 
 									  	<select id="time_choice_1" name="time_choice_1" required="">	 
 									  	 	<option value="">Select one:</option>
 									  	 	<option value="7-10">AM (7-10)</option>
@@ -406,7 +406,7 @@
 									  	 	<option value="19+">Late after 19</option> 
 									   	</select></p>
 
-									  <p><label for="appt_choice2">Appointment Choice 2:</label> 
+									  <p><label for="appt_choice2">Appointment Choice 2:<span class="required-indicator"> *</span></label> 
 									  	<select id="appt_choice2" name="appt_choice2" required="">
 									  		<option value="">Select one:</option>
 									  		<option value="weekday">Weekday appointment</option>
@@ -422,7 +422,7 @@
 									  		<option value="19+">Late after 19</option> 
 									  	</select></p>
                                  </div>
-								 <p><label for="tire_mounting">Service Required:</label> </p>
+								 <p><label for="tire_mounting">Service Required:<span class="required-indicator"> *</span></label> </p>
 								 	<div class="col-md-12">	<p>
 								 	<input id="already_mounted" name="tire_mounting" required="" type="radio" value="already_mounted" /> 
 								 	<label for="already_mounted"> On Rims - My Tires have their own wheels</label> </p>

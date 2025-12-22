@@ -506,3 +506,27 @@
         margin-top: 4px;
     }
 }
+
+/* ============================================
+   REQUIRED FIELD INDICATOR
+   ============================================ */
+
+/* Required field asterisk */
+.main_form .required-indicator {
+    color: #dc3545;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+/* Required field placeholder asterisk */
+.main_form input[required]::placeholder,
+.main_form select[required]::placeholder,
+.main_form textarea[required]::placeholder {
+    color: #999;
+}
+
+/* Style for labels with required fields */
+.main_form label .required-indicator {
+    color: #dc3545;
+    font-size: 14px;
+}

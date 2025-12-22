@@ -430,3 +430,79 @@
         display: none;
     }
 }
+
+/* ============================================
+   RADIO BUTTON STYLING
+   ============================================ */
+
+/* Radio button container */
+.main_form input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    margin-right: 8px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.main_form input[type="radio"]:checked {
+    border-color: #f3cf2d;
+    background: #f3cf2d;
+}
+
+.main_form input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.main_form input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(243, 207, 45, 0.3);
+}
+
+/* Radio button label alignment */
+.main_form p:has(input[type="radio"]) {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.main_form input[type="radio"] + label {
+    display: inline;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+    line-height: 1.4;
+    padding-top: 2px;
+}
+
+/* Fallback for browsers without :has() support */
+@supports not (selector(:has(*))) {
+    .main_form p {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    
+    .main_form p input[type="radio"] {
+        margin-top: 4px;
+    }
+}

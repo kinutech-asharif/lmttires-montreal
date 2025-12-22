@@ -8,7 +8,7 @@
   'use strict';
 
   // Configuration
-  const WORKER_URL = 'https://lmt-form-handler.09a0acf915cb9b6089b37da1f7468bd4.workers.dev';
+  const WORKER_URL = 'https://lmt-form-handler.quiet-forest-0efa.workers.dev';
 
   // Get language from page (check html lang attribute or URL)
   function getPageLanguage() {

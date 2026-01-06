@@ -20,6 +20,8 @@
       <link rel="stylesheet" href="css/responsive.css">
       <!-- Enhanced Form Styling -->
       <link rel="stylesheet" href="css/form-style.css">
+      <!-- Cloudflare Turnstile (Bot Protection) -->
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
       <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
@@ -433,6 +435,10 @@
                                        <input type="checkbox" id="privacy_consent" name="privacy_consent" checked style="margin-right: 10px; margin-top: 3px; min-width: 18px; height: 18px;" required />
                                        <span>I acknowledge that I have read and understand the <a href="privacy.html" target="_blank" style="color: #c01e2e; text-decoration: underline;">Privacy Policy</a> and consent to the collection and use of my personal information as described.</span>
                                     </label>
+                                 </div>
+                                 <!-- Cloudflare Turnstile Widget -->
+                                 <div class="col-md-12" style="margin: 15px 0; display: flex; justify-content: center;">
+                                    <div class="cf-turnstile" data-sitekey="0x4AAAAAACK4l7dujSu5FMhg" data-theme="light"></div>
                                  </div>
                                  <div class="col-md-12">
                                     <button class="send_btn">Send</button>

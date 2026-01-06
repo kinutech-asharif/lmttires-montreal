@@ -96,6 +96,19 @@
     const form = event.target;
     const submitButton = form.querySelector('button[type="submit"], button.send_btn');
 
+    // Get Turnstile token
+    const turnstileToken = form.querySelector('[name="cf-turnstile-response"]')?.value || '';
+    
+    // Check if Turnstile widget exists and token is missing
+    const turnstileWidget = form.querySelector('.cf-turnstile');
+    if (turnstileWidget && !turnstileToken) {
+      const errorMessage = getPageLanguage() === 'fr'
+        ? 'Veuillez compléter la vérification de sécurité.'
+        : 'Please complete the security verification.';
+      showMessage(errorMessage, 'error');
+      return;
+    }
+
     // Collect form data
     const formData = {
       formType: 'appointment',
@@ -113,7 +126,8 @@
       timeChoice2: form.querySelector('[name="time_choice_2"]')?.value || '',
       tireMounting: form.querySelector('[name="tire_mounting"]:checked')?.value || '',
       comments: form.querySelector('[name*="Comments"], textarea')?.value?.trim() || '',
-      honeypot: form.querySelector('[name="website"]')?.value || '' // Anti-spam field
+      honeypot: form.querySelector('[name="website"]')?.value || '', // Anti-spam field
+      'cf-turnstile-response': turnstileToken // Cloudflare Turnstile token
     };
 
     setLoadingState(submitButton, true);
@@ -133,8 +147,16 @@
       if (data.success) {
         showMessage(data.message, 'success');
         form.reset(); // Clear the form
+        // Reset Turnstile widget for potential re-submission
+        if (typeof turnstile !== 'undefined') {
+          turnstile.reset();
+        }
       } else {
         showMessage(data.message || 'An error occurred. Please try again.', 'error');
+        // Reset Turnstile on error so user can retry
+        if (typeof turnstile !== 'undefined') {
+          turnstile.reset();
+        }
       }
     })
     .catch(error => {
@@ -146,6 +168,10 @@
         : 'An error occurred. Please try again or call us at +1 514-909-8473.';
 
       showMessage(errorMessage, 'error');
+      // Reset Turnstile on error so user can retry
+      if (typeof turnstile !== 'undefined') {
+        turnstile.reset();
+      }
     });
   }
 
